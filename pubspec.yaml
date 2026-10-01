@@ -1,34 +1,19 @@
-name: Build Android APK
+name: app
+description: A new Flutter project.
+publish_to: 'none'
 
-on:
-  push:
-    branches: [ "main" ]
-  workflow_dispatch: # Allows you to run the build manually
+environment:
+  sdk: '>=3.0.0 <4.0.0'
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-          
-      - name: Install dependencies
-        run: flutter pub get
-        
-      - name: Build APK
-        run: flutter build apk --release
-        
-      - name: Upload APK Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: flutter-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
- dependencies:
+dependencies:
   flutter:
     sdk: flutter
-  fl_chart: ^0.65.0  # Add this line
+  fl_chart: ^0.65.0
 
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
