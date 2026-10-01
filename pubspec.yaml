@@ -27,3 +27,8 @@ jobs:
         with:
           name: flutter-apk
           path: build/app/outputs/flutter-apk/app-release.apk
+ dependencies:
+  flutter:
+    sdk: flutter
+  fl_chart: ^0.65.0  # Add this line
+
